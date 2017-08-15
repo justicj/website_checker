@@ -23,17 +23,11 @@ def get_div(url):
     div = soup.find('div', {'id':div_id})
     return div.text
 
-
 def get_diff_ratio(base, compare):
     d = difflib.SequenceMatcher(None, base, compare)
     return d.ratio()
 
 def send_push(title, body, token):
-    """ Sending notification via pushbullet.
-        Args:
-            title (str) : title of text.
-            body (str) : Body of text.
-    """
     data_send = {"type": "note", "title": title, "body": body}
     ACCESS_TOKEN = token
     resp = requests.post('https://api.pushbullet.com/v2/pushes', data=json.dumps(data_send),
@@ -58,7 +52,7 @@ def run_check(base):
         if ratio == 1.0:
             print ("Content matches")
 
-#get first base content
+#get initial div content, set to base
 print("Getting Base Url Content")
 base = get_div(url)
 run_check(base)
