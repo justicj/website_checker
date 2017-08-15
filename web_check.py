@@ -10,7 +10,7 @@ div_id = "ColumnUserControl3"
 #testing stuff
 #url = "https://justicj.github.io/index.html"
 #div_id = 'crapola'
-pushbullet_token = "o.N1vj1zhFcDSYzDjNy88tfb66aDc9JxG8"
+pushbullet_token = "insertToken"
 pushbullet_subject = "Men's Monday Softball Website Change"
 pushbullet_body = "Something has changed on Vista Mens Monday Night Softball website, please check it out at http://www.cityofvista.com/services/city-departments/recreation-comm-services/programs-services/softball/monday-men-s-b-c"
 interval = 1800
