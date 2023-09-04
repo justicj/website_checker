@@ -4,14 +4,22 @@ import requests
 import difflib
 import json
 import time
+import sys
+sys.path.append('D:\scripts\library')
+import gmail
 
 # variables
-url = "https://www.cityofvista.com/city-services/recreation-community-services/youth-basketball/girls-b"
-div_id = "widget_4_9319_5903"
-subject = "Girls B"
+# url = "https://www.cityofvista.com/city-services/recreation-community-services/youth-basketball/girls-b"
+url = "https://www.cremeofthecounty.com/2021-team-rosters"
+# div_id = "widget_4_9319_5903"
+div_id = "idqj4a7t_2"
+# subject = "Girls B"
+subject = "COTC"
 body = "Something has changed on " + subject + " website, please check it out at " + url
-ifttt_webhook = "https://maker.ifttt.com/trigger/GirlsB/with/key/insertkeyhere"
-interval = 10
+ifttt_webhook = "https://maker.ifttt.com/trigger/GirlsB/with/key/dikq5osdJKlKCwvzbo9TFK"
+interval = 1800
+EMAIL_ADDRESS = 'jayjustice@gmail.com'
+SUBJECT = f"{subject} Website changed"
 
 def get_div(url):
     #requests module to get url content
@@ -52,6 +60,7 @@ def run_check(base):
             print(ratio)
             if ratio < 1.0:
                 print ("Change : ", ratio, " ratio")
+                gmail.send_email(EMAIL_ADDRESS, SUBJECT, [body])
                 code, text = webhook()
                 print(code, text)
                 # send_push(subject, body, pushbullet_token)
